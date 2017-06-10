@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using OpenNLP.Tools.Tokenize;
 using SharpEntropy;
 using SharpEntropy.IO;
@@ -10,7 +14,7 @@ namespace DataFileConverter
     {
         static void Main(string[] args)
         {
-            var currentDirectory = Directory.GetCurrentDirectory() + "/../../";
+            var currentDirectory = Environment.CurrentDirectory + "/../../";
             var gisModelFilePath = currentDirectory + "../Resources/Models/EnglishSD.nbin";
 
             var outputFilePath = currentDirectory + "Output/" + Path.GetFileNameWithoutExtension(gisModelFilePath) + ".txt";
