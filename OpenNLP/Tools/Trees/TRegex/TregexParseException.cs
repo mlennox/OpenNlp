@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenNLP.Tools.Trees.TRegex
 {
@@ -16,7 +12,7 @@ namespace OpenNLP.Tools.Trees.TRegex
     /// 
     /// Code retrieved on the Stanford parser and ported to C# (see http://nlp.stanford.edu/software/lex-parser.shtml)
     /// </summary>
-    public class TregexParseException : SystemException
+    public class TregexParseException : Exception
     {
         public TregexParseException(string message) : base(message)
         {

@@ -1,8 +1,20 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/PosTagger/DefaultPosContextGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Util/XMLUtils.cs">
     <Files>
-      <File FileName="OpenNLP/Tools/Parser/ChunkContextGenerator.cs" Line="220" Column="55" />
-      <File FileName="OpenNLP/Tools/PosTagger/DefaultPosContextGenerator.cs" Line="72" Column="8" />
+      <File FileName="OpenNLP/Tools/Parser/ChunkContextGenerator.cs" Line="66" Column="8" />
+      <File FileName="OpenNLP/Tools/PosTagger/DefaultPosContextGenerator.cs" Line="164" Column="52" />
+      <File FileName="OpenNLP/Tools/Parser/Parse.cs" Line="526" Column="33" />
+      <File FileName="OpenNLP/Tools/Tokenize/MultipleFileTokenEventReader.cs" Line="38" Column="45" />
+      <File FileName="OpenNLP/Tools/Tokenize/TokenEventReader.cs" Line="40" Column="19" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Relation.cs" Line="7" Column="1" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/JJTTsurgeonParserState.cs" Line="1" Column="1" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/TregexParseException.cs" Line="3" Column="37" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonParseException.cs" Line="1" Column="14" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonRuntimeException.cs" Line="1" Column="14" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonParser.cs" Line="1315" Column="49" />
+      <File FileName="OpenNLP/Tools/Util/HashableCoreMap.cs" Line="122" Column="49" />
+      <File FileName="ModelConverter/Converter.cs" Line="12" Column="3" />
+      <File FileName="OpenNLP/Tools/Util/XMLUtils.cs" Line="16" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

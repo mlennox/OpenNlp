@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
 {
@@ -11,7 +7,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
     /// 
     /// @author John Bauer
     /// </summary>
-    public class TsurgeonRuntimeException : SystemException
+    public class TsurgeonRuntimeException : Exception
     {
         /// <summary>
         /// Creates a new exception with a message.

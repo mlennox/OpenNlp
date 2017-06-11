@@ -2,10 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.SqlServer.Server;
 using OpenNLP.Tools.Util;
 
 namespace OpenNLP.Tools.Trees.TRegex

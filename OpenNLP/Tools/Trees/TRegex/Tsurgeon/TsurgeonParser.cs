@@ -1312,7 +1312,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             throw GenerateParseException();
         }
 
-        private sealed class LookaheadSuccess : SystemException
+        private sealed class LookaheadSuccess : Exception
         {
         }
 

@@ -119,7 +119,7 @@ namespace OpenNLP.Tools.Util
         /// 
         /// @author dramage
         /// </summary>
-        public class HashableCoreMapException : SystemException
+        public class HashableCoreMapException : Exception
         {
 
             public HashableCoreMapException(string message) : base(message)
