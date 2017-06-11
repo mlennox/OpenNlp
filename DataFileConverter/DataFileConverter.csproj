@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OpenNLP\OpenNLP.csproj" />
+    <ProjectReference Include="..\SharpEntropy\SharpEntropy.csproj" />
+  </ItemGroup>
 </Project>

@@ -505,7 +505,8 @@ namespace SharpEntropy
 				{
 					if (previousLogLikelihood > currentLogLikelihood)
 					{
-						throw new SystemException("Model Diverging: loglikelihood decreased");
+                        // TODO : consider custom exception?
+						throw new Exception("Model Diverging: loglikelihood decreased");
 					}
 					if (currentLogLikelihood - previousLogLikelihood < mLLThreshold)
 					{

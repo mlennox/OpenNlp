@@ -35,7 +35,7 @@
 
 using System;
 using System.Collections.Specialized;
-using System.Runtime.Caching;
+using Microsoft.Extensions.Caching.Memory;
 using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
@@ -81,11 +81,15 @@ namespace OpenNLP.Tools.NameFind
 			InitializePatterns();
             if (cacheSizeInMegaBytes > 0)
 			{
-                var properties = new NameValueCollection
-			    {
-			        {"cacheMemoryLimitMegabytes", cacheSizeInMegaBytes.ToString()}
-			    };
-                contextsCache = new MemoryCache("nameContextCache", properties);
+				//         var properties = new NameValueCollection
+				//{
+				//    {"cacheMemoryLimitMegabytes", cacheSizeInMegaBytes.ToString()}
+				//};
+				//("nameContextCache", properties);
+				contextsCache = new MemoryCache(new MemoryCacheOptions()
+                {
+                    CompactOnMemoryPressure = true,
+                });
 			}
 		}
 
@@ -163,11 +167,15 @@ namespace OpenNLP.Tools.NameFind
                 string.Join("|", tokens));
 			if (contextsCache != null)
 			{
-				var cachedContexts = (string[])contextsCache[cacheKey];
-				if (cachedContexts != null)
-				{
-					return cachedContexts;
-				}
+                string[] cachedContexts = null;
+                if (contextsCache.TryGetValue(cacheKey, out cachedContexts)){
+                    return cachedContexts;
+                }
+				//var cachedContexts = (string[])contextsCache[cacheKey];
+				//if (cachedContexts != null)
+				//{
+				//	return cachedContexts;
+				//}
 			}
 
             // otherwise, compute context
@@ -185,7 +193,7 @@ namespace OpenNLP.Tools.NameFind
 			contexts[featureCount + 3] = "ppo=" + previousPrevious;
 			if (contextsCache != null)
 			{
-				contextsCache[cacheKey] = contexts;
+                contextsCache.Set(cacheKey, contexts);
 			}
 			return contexts;
 		}
@@ -215,7 +223,7 @@ namespace OpenNLP.Tools.NameFind
 			features.Add("def");
 			
 			//current word
-			string currentWord = tokens[index].ToLower(System.Globalization.CultureInfo.InvariantCulture);
+            string currentWord = tokens[index].ToLowerInvariant();
 			features.Add("w=" + currentWord);
 			string wordFeature = WordFeature(tokens[index]);
 			features.Add("wf=" + wordFeature);
@@ -236,7 +244,7 @@ namespace OpenNLP.Tools.NameFind
 			// previous previous word
 			if (index - 2 >= 0)
 			{
-				string previousPreviousWord = tokens[index - 2].ToLower(System.Globalization.CultureInfo.InvariantCulture);
+				string previousPreviousWord = tokens[index - 2].ToLowerInvariant();
 				features.Add("ppw=" + previousPreviousWord);
 				string previousPreviousWordFeature = WordFeature(tokens[index - 2]);
 				features.Add("ppwf=" + previousPreviousWordFeature);
@@ -255,7 +263,7 @@ namespace OpenNLP.Tools.NameFind
 			}
 			else
 			{
-				string previousWord = tokens[index - 1].ToLower(System.Globalization.CultureInfo.InvariantCulture);
+                string previousWord = tokens[index - 1].ToLowerInvariant();
 				features.Add("pw=" + previousWord);
 				string previousWordFeature = WordFeature(tokens[index - 1]);
 				features.Add("pwf=" + previousWordFeature);
@@ -272,7 +280,7 @@ namespace OpenNLP.Tools.NameFind
 			}
 			else
 			{
-				string nextWord = tokens[index + 1].ToLower(System.Globalization.CultureInfo.InvariantCulture);
+				string nextWord = tokens[index + 1].ToLowerInvariant();
 				features.Add("nw=" + nextWord);
 				string nextWordFeature = WordFeature(tokens[index + 1]);
 				features.Add("nwf=" + nextWordFeature);
@@ -286,7 +294,7 @@ namespace OpenNLP.Tools.NameFind
 			}
 			else
 			{
-				string nextNextWord = tokens[index + 2].ToLower(System.Globalization.CultureInfo.InvariantCulture);
+				string nextNextWord = tokens[index + 2].ToLowerInvariant();
 				features.Add("nnw=" + nextNextWord);
 				string nextNextWordFeature = WordFeature(tokens[index + 2]);
 				features.Add("nnwf=" + nextNextWordFeature);
