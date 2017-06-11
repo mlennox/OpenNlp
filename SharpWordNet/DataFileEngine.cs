@@ -500,9 +500,16 @@ namespace SharpWordNet
 
             public PosDataFileSet(string dataFolder, string partOfSpeech)
             {
-                _indexFile = new StreamReader(dataFolder + "\\index." + partOfSpeech);
-                _dataFile = new StreamReader(dataFolder + "\\data." + partOfSpeech);
-                _exceptionFile = new StreamReader(dataFolder + "\\" + partOfSpeech + ".exc");
+                _indexFile = StreamFile(dataFolder + "\\index." + partOfSpeech);
+                _dataFile = StreamFile(dataFolder + "\\data." + partOfSpeech);
+                _exceptionFile = StreamFile(dataFolder + "\\" + partOfSpeech + ".exc");
+            }
+
+            private StreamReader StreamFile(string filePath){
+                using (var stream = new FileStream(filePath, FileMode.Open))
+				{
+					return new StreamReader(stream);
+				}
             }
         }
 

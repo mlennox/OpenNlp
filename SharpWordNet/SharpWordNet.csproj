@@ -4,4 +4,19 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="TestHarness.Old\AssemblyInfo.cs" />
+    <Compile Remove="TestHarness.Old\WordNetBrowser.cs" />
+    <Compile Remove="TestHarness\UnitTest1.cs" />
+    <Compile Remove="TestHarness\WordNetBrowser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="TestHarness.Old\App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="TestHarness.Old\WordNetBrowser.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.2.0" />
+  </ItemGroup>
 </Project>
