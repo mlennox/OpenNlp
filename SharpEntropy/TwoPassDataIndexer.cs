@@ -227,8 +227,11 @@ namespace SharpEntropy
 
 		public FileEventReader(string fileName)
 		{
-			mReader = new StreamReader(fileName, Encoding.UTF7);
-			mWhitespace = new char[] {'\t', '\n', '\r', ' '};
+            using (var fileStream = new FileStream(fileName, FileMode.Open))
+            {
+                mReader = new StreamReader(fileStream, Encoding.UTF7);
+			    mWhitespace = new char[] { '\t', '\n', '\r', ' ' };
+            }
 		}
 		
 		public virtual bool HasNext()
@@ -256,7 +259,7 @@ namespace SharpEntropy
 			{
 				lineBuilder.Append(" " + context[contextIndex]);
 			}
-			lineBuilder.Append(System.Environment.NewLine);
+			lineBuilder.Append(Environment.NewLine);
 			return lineBuilder.ToString();
 		}
 
@@ -270,7 +273,7 @@ namespace SharpEntropy
 		{
 			if (disposing) 
 			{
-				mReader.Close();
+                mReader.Dispose();
 			}
 		}
 

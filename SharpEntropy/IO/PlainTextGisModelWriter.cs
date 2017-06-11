@@ -35,6 +35,7 @@
 
 using System;
 using System.IO;
+using System.Text;
 
 namespace SharpEntropy.IO
 {
@@ -72,10 +73,13 @@ namespace SharpEntropy.IO
 		/// </param>
 		public void Persist(GisModel model, string fileName)
 		{
-            using (mOutput = new StreamWriter(fileName, false, System.Text.Encoding.UTF7))
-			{
-				base.Persist(model);
-			}
+            using (var fileStream = new FileStream(fileName, FileMode.Create)){
+                using (mOutput = new StreamWriter(fileStream, Encoding.UTF7))
+				{
+					base.Persist(model);
+				}
+            }
+
 		}
 
 		/// <summary>
