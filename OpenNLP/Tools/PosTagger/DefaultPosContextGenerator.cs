@@ -36,7 +36,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Runtime.Caching;
+using Microsoft.Extensions.Caching.Memory;
 using System.Text.RegularExpressions;
 
 namespace OpenNLP.Tools.PosTagger
@@ -65,11 +65,10 @@ namespace OpenNLP.Tools.PosTagger
 		{
 			if (cacheSizeInMegaBytes > 0)
 			{
-			    var properties = new NameValueCollection
-			    {
-			        {"cacheMemoryLimitMegabytes", cacheSizeInMegaBytes.ToString()}
-			    };
-			    memoryCache = new MemoryCache("posContextCache", properties);
+                memoryCache = new MemoryCache(new MemoryCacheOptions()
+				{
+					CompactOnMemoryPressure = true,
+				});
 			}
 		}
 
@@ -151,11 +150,10 @@ namespace OpenNLP.Tools.PosTagger
                 string.Join("|", tokens), tagPrevious, tagPreviousPrevious);
 			if (memoryCache != null) 
 			{
-				var cachedContexts = (string[]) memoryCache[cacheKey];    
-				if (cachedContexts != null) 
-				{
-					return cachedContexts;
-				}
+                string[] cachedContexts;
+                if (memoryCache.TryGetValue(cacheKey, out cachedContexts)){
+                    return cachedContexts;
+                }
 			}
 
 		    var eventList = CreateEventList(lex, previous, previousPrevious, tagPrevious, tagPreviousPrevious, next, nextNext);
@@ -163,7 +161,7 @@ namespace OpenNLP.Tools.PosTagger
 			string[] contexts = eventList.ToArray();
 			if (memoryCache != null) 
 			{
-				memoryCache[cacheKey] = contexts;
+                memoryCache.Set(cacheKey,contexts);
 			}
 			return contexts;
 		}

@@ -35,8 +35,7 @@
 
 using System;
 using System.Collections;
-using System.Collections.Specialized;
-using System.Runtime.Caching;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace OpenNLP.Tools.Util
 {
@@ -80,11 +79,10 @@ namespace OpenNLP.Tools.Util
 
             if (cacheSizeInMegaBytes > 0)
             {
-                var properties = new NameValueCollection
-			    {
-			        {"cacheMemoryLimitMegabytes", cacheSizeInMegaBytes.ToString()}
-			    };
-                contextsCache = new MemoryCache("beamSearchContextCache", properties);
+				contextsCache = new MemoryCache(new MemoryCacheOptions()
+				{
+					CompactOnMemoryPressure = true,
+				});
             }
         }
 
@@ -142,11 +140,9 @@ namespace OpenNLP.Tools.Util
                     if (contextsCache != null)
                     {
                         var contextKey = string.Join("|", contexts);
-                        scores = (double[]) contextsCache[contextKey];
-                        if (scores == null)
-                        {
-                            scores = Model.Evaluate(contexts, probabilities);
-                            contextsCache[contextKey] = scores;
+                        if (!contextsCache.TryGetValue(contextKey, out scores)){
+							scores = Model.Evaluate(contexts, probabilities);
+                            contextsCache.Set(contextKey, scores);
                         }
                     }
                     else

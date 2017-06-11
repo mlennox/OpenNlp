@@ -36,7 +36,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Runtime.Caching;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace OpenNLP.Tools.Parser
 {
@@ -55,11 +55,15 @@ namespace OpenNLP.Tools.Parser
 		{
 			if (cacheSizeInMegaBytes > 0) 
 			{
-				var properties = new NameValueCollection
+				//var properties = new NameValueCollection
+				//{
+				//    {"cacheMemoryLimitMegabytes", cacheSizeInMegaBytes.ToString()}
+				//};
+				//contextsCache = new MemoryCache("chunkContextCache", properties);
+				contextsCache = new MemoryCache(new MemoryCacheOptions()
 				{
-				    {"cacheMemoryLimitMegabytes", cacheSizeInMegaBytes.ToString()}
-				};
-			    contextsCache = new MemoryCache("chunkContextCache", properties);
+					CompactOnMemoryPressure = true,
+				});
 			}
 		}
 
@@ -170,11 +174,9 @@ namespace OpenNLP.Tools.Parser
 
 			if (contextsCache != null) 
 			{
-				contexts = (string[]) contextsCache[cacheKey];
-				if (contexts != null) 
-				{
-					return contexts;
-				}
+                if (contextsCache.TryGetValue(cacheKey, out contexts)){
+                    return contexts;
+                }
 			}
 
 			string previousPreviousChunkTag = ChunkAndPosTag(-2, previousPreviousWord, previousPreviousTag, previousPreviousPriorDecision);
@@ -215,7 +217,7 @@ namespace OpenNLP.Tools.Parser
 			contexts = features.ToArray();
 			if (contextsCache != null)
 			{
-				contextsCache[cacheKey] = contexts;
+                contextsCache.Set(cacheKey, contexts);
 			}
 			return contexts;
 		}
