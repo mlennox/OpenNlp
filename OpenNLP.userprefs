@@ -1,7 +1,10 @@
-﻿<Properties StartupConfiguration="{8B7FEF34-CEC3-4212-9E8C-9D815E04BFAB}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ModelConverter/Converter.cs">
+﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToolsExample/MainForm.cs">
     <Files>
       <File FileName="ModelConverter/Converter.cs" Line="12" Column="3" />
+      <File FileName="SharpWordNet/Relation.cs" Line="1" Column="1" />
+      <File FileName="SharpWordNet/RelationType.cs" Line="1" Column="1" />
+      <File FileName="ToolsExample/MainForm.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -10,9 +13,11 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ParseTree PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.ModelConverter PreferredExecutionTarget="MonoDevelop.Default" />
   <DisabledProjects>
     <String>Lithium.Old/Lithium.Old.csproj</String>
     <String>Lithium/Lithium.csproj</String>
+    <String>ParseTree/ParseTree.csproj</String>
+    <String>ToolsExample/ToolsExample.csproj</String>
   </DisabledProjects>
 </Properties>

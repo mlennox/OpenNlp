@@ -4,7 +4,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0B266E2E-A9C3-4C2C-B7BA-86F553E30F24}</ProjectGuid>
+    <ProjectGuid>{BF0BF8B0-1894-4EDF-BF51-F370B063797E}</ProjectGuid>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -15,14 +15,14 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>SharpEntropySqlite</AssemblyName>
+    <AssemblyName>SharpEntropy</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <OutputType>Library</OutputType>
-    <RootNamespace>SharpEntropySqlite</RootNamespace>
+    <RootNamespace>SharpEntropy</RootNamespace>
     <StartupObject>
     </StartupObject>
     <FileUpgradeFlags>
@@ -41,8 +41,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>SharpEntropyDoc.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>false</Optimize>
@@ -76,60 +75,98 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data">
       <Name>System.Data</Name>
-    </Reference>
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.92.0\lib\net45\System.Data.SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.EF6">
-      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.92.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.Linq">
-      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.92.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractDataIndexer.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SqliteGisModelReader.cs">
+    <Compile Include="BasicContextGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SqliteGisModelWriter.cs">
+    <Compile Include="BasicEventReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ComparableEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GisModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GisTrainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IContextGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IMaximumEntropyModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\BinaryGisModelReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\BinaryGisModelWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\GisModelReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\GisModelWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\IGisModelReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\JavaBinaryGisModelReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\JavaBinaryGisModelWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\PlainTextGisModelReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\PlainTextGisModelWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITrainingDataIndexer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITrainingDataReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITrainingEventReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OnePassDataIndexer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PatternedPredicate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlainTextByLineDataReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TrainingEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TwoPassDataIndexer.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpEntropy.csproj">
-      <Project>{BF0BF8B0-1894-4EDF-BF51-F370B063797E}</Project>
-      <Name>SharpEntropy</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="x64\" />
+    <None Include="SharpEntropy.ndoc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
