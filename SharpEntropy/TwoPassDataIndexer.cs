@@ -133,35 +133,38 @@ namespace SharpEntropy
 			int predicateIndex = 0;
 			int eventCount = 0;
 
-			using (var eventStoreWriter = new StreamWriter(eventStoreFile))
-			{
-				while (eventReader.HasNext())
+            using (var fileStream = new FileStream(eventStoreFile, FileMode.Create)){
+                using (var eventStoreWriter = new StreamWriter(fileStream))
 				{
-					TrainingEvent currentTrainingEvent = eventReader.ReadNextEvent();
-					eventCount++;
-					eventStoreWriter.Write(FileEventReader.ToLine(currentTrainingEvent));
-					string[] eventContext = currentTrainingEvent.Context;
-					for (int currentPredicate = 0; currentPredicate < eventContext.Length; currentPredicate++)
+					while (eventReader.HasNext())
 					{
-						if (!predicatesInOut.ContainsKey(eventContext[currentPredicate]))
+						TrainingEvent currentTrainingEvent = eventReader.ReadNextEvent();
+						eventCount++;
+						eventStoreWriter.Write(FileEventReader.ToLine(currentTrainingEvent));
+						string[] eventContext = currentTrainingEvent.Context;
+						for (int currentPredicate = 0; currentPredicate < eventContext.Length; currentPredicate++)
 						{
-							if (counter.ContainsKey(eventContext[currentPredicate]))
+							if (!predicatesInOut.ContainsKey(eventContext[currentPredicate]))
 							{
-								counter[eventContext[currentPredicate]]++;
-							}
-							else
-							{
-								counter.Add(eventContext[currentPredicate], 1);
-							}
-							if (counter[eventContext[currentPredicate]] >= cutoff)
-							{
-								predicatesInOut.Add(eventContext[currentPredicate], predicateIndex++);
-								counter.Remove(eventContext[currentPredicate]);
+								if (counter.ContainsKey(eventContext[currentPredicate]))
+								{
+									counter[eventContext[currentPredicate]]++;
+								}
+								else
+								{
+									counter.Add(eventContext[currentPredicate], 1);
+								}
+								if (counter[eventContext[currentPredicate]] >= cutoff)
+								{
+									predicatesInOut.Add(eventContext[currentPredicate], predicateIndex++);
+									counter.Remove(eventContext[currentPredicate]);
+								}
 							}
 						}
 					}
 				}
-			}
+            }
+			
 			return eventCount;
 		}
 

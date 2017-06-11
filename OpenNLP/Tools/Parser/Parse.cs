@@ -48,7 +48,7 @@ namespace OpenNLP.Tools.Parser
 	/// Exception class for problems detected during parsing.
 	/// </summary>
 	[Serializable]
-	public class ParseException : ApplicationException
+	public class ParseException : Exception
 	{
 		public ParseException(){}
 
@@ -56,13 +56,13 @@ namespace OpenNLP.Tools.Parser
 
 		public ParseException(string message, Exception innerException) : base(message, innerException){}
 
-		protected ParseException(SerializationInfo info, StreamingContext context) : base(info, context){}
+		//protected ParseException(SerializationInfo info, StreamingContext context) : base(info, context){}
 	}
 
 	/// <summary>
 	/// Class for holding constituents.
 	/// </summary>
-	public class Parse : ICloneable, IComparable
+	public class Parse : IComparable
 	{
 		/// <summary>
 		/// The sub-constituents of this parse.

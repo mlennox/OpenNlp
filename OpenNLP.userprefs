@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpEntropy/IO/PlainTextGisModelWriter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Tokenize/TokenSpanEventReader.cs">
     <Files>
-      <File FileName="SharpEntropy/IO/PlainTextGisModelWriter.cs" Line="74" Column="4" />
+      <File FileName="SharpEntropy/IO/PlainTextGisModelReader.cs" Line="36" Column="18" />
+      <File FileName="SharpEntropy/IO/GisModelReader.cs" Line="124" Column="54" />
+      <File FileName="OpenNLP/Tools/Tokenize/TokenSpanEventReader.cs" Line="102" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/mlennox/projects/OpenNlp/SharpEntropy/IO/PlainTextGisModelWriter.cs" relfile="SharpEntropy/IO/PlainTextGisModelWriter.cs" line="75" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

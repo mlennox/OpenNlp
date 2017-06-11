@@ -33,7 +33,7 @@
 // License along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-using System;
+using System.Text;
 using System.IO;
 
 namespace SharpEntropy.IO
@@ -77,10 +77,13 @@ namespace SharpEntropy.IO
 		/// </param>
 		public PlainTextGisModelReader(string fileName)
 		{
-			using (mInput = new StreamReader(fileName, System.Text.Encoding.UTF7))
-			{
-				base.ReadModel();
-			}
+            using (var fileStream = new FileStream(fileName,FileMode.Open)){
+                using (mInput = new StreamReader(fileStream, Encoding.UTF7))
+				{
+					base.ReadModel();
+				}    
+            }
+			
 		}
 
 		/// <summary>

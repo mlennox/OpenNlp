@@ -121,7 +121,8 @@ namespace SharpEntropy.IO
 			string modelType = ReadString();
 			if (modelType != "GIS") 
 			{
-				throw new ApplicationException("Error: attempting to load a " + modelType + " model as a GIS model." + " You should expect problems.");
+                // TODO : consider a custom exception
+                throw new Exception("Error: attempting to load a " + modelType + " model as a GIS model." + " You should expect problems.");
 			}
 		}
 
