@@ -1,6 +1,6 @@
 #OpenNlp
 
-OpenNlp is an open source library for Natural Language Processing (NLP). 
+OpenNlp is an open source library for Natural Language Processing (NLP).
 It provides a number of NLP tools in C#:
 * sentence splitter
 * tokenizer
@@ -12,8 +12,8 @@ It provides a number of NLP tools in C#:
 
 This project started as a C# port of the Java OpenNLP tools (initial code was retrieved on http://sharpnlp.codeplex.com). It was moved to Github to improve the code (add new features and fix detected bugs) and create a nuget package.
 
-You can install this library via nuget: 
->Install-Package OpenNp 
+You can install this library via nuget:
+>Install-Package OpenNp
 
 ##Quick start
 
@@ -22,7 +22,7 @@ You'll find below a more detailed description of the tools and how code snippets
 All NLP tools based on the maxent algorithm need model files to run. You'll find those files for English in Resources/Models. If you want to train your own models (to improve precision on English or to use those tools on other languages), please refer to the last section.
 
 ###Sentence splitter
-A sentence splitter splits a paragraph in sentences. 
+A sentence splitter splits a paragraph in sentences.
 Technically, the sentence detector will compute the likelihood that a specific character ('.', '?' or '!' in the case of English) marks the end of a sentence.
 
 ```csharp
@@ -30,9 +30,9 @@ var paragraph = "Mr. & Mrs. Smith is a 2005 American romantic comedy action film
 var modelPath = "path/to/EnglishSD.nbin";
 var sentenceDetector = EnglishMaximumEntropySentenceDetector(modelPath);
 var sentences = sentenceDetector.SentenceDetect(paragraph);
-/* 
- * sentences = ["Mr. & Mrs. Smith is a 2005 American romantic comedy action film.", 
- * "The film stars Brad Pitt and Angelina Jolie as a bored upper-middle class married couple.", 
+/*
+ * sentences = ["Mr. & Mrs. Smith is a 2005 American romantic comedy action film.",
+ * "The film stars Brad Pitt and Angelina Jolie as a bored upper-middle class married couple.",
  * "They are surprised to learn that they are both assassins hired by competing agencies to kill each other."]
  */
 ```
@@ -90,11 +90,11 @@ Coference detects all expressions that refer to the same entities in a text.
 ```csharp
 var modelPath = "path/to/coref/dir";
 var coreferenceFinder = new TreebankLinker(modelPath);
-var sentences = ["Mr. & Mrs. Smith is a 2005 American romantic comedy action film.", 
-	"The film stars Brad Pitt and Angelina Jolie as a bored upper-middle class married couple.", 
+var sentences = ["Mr. & Mrs. Smith is a 2005 American romantic comedy action film.",
+	"The film stars Brad Pitt and Angelina Jolie as a bored upper-middle class married couple.",
 	"They are surprised to learn that they are both assassins hired by competing agencies to kill each other."];
 var coref = coreferenceFinder.GetCoreferenceParse(sentences);
-// coref = 
+// coref =
 ```
 
 ###Name entity recognition
