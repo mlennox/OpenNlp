@@ -4,4 +4,20 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="SharpEntropySqlite\.DS_Store" />
+    <None Remove="SharpEntropySqlite\packages.config" />
+    <None Remove="SharpEntropySqlite\obj\SharpEntropySqlite.csproj.nuget.g.props" />
+    <None Remove="SharpEntropySqlite\obj\SharpEntropySqlite.csproj.nuget.g.targets" />
+    <None Remove="SharpEntropySqlite\obj\project.assets.json" />
+    <None Remove="SharpEntropySqlite\x86\SQLite.Interop.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpEntropy.ndoc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="SharpEntropySqlite\SqliteGisModelReader.cs" />
+    <Compile Remove="SharpEntropySqlite\SqliteGisModelWriter.cs" />
+  </ItemGroup>
 </Project>
