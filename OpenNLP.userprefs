@@ -1,9 +1,5 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpWordNet/DataFileEngine.cs">
-    <Files>
-      <File FileName="SharpWordNet/DataFileEngine.cs" Line="503" Column="40" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
@@ -16,7 +12,7 @@
     <String>Lithium/Lithium.csproj</String>
     <String>ParseTree/ParseTree.csproj</String>
     <String>ToolsExample/ToolsExample.csproj</String>
-    <String>SharpEntropy.Old/SharpEntropy.csproj</String>
     <String>Trainer/Trainer.csproj</String>
+    <String>SharpEntropy.Old/SharpEntropy.csproj</String>
   </DisabledProjects>
 </Properties>

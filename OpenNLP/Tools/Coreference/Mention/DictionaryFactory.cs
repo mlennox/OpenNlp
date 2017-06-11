@@ -33,8 +33,8 @@
 //License along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-using System;
-using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace OpenNLP.Tools.Coreference.Mention
 {
@@ -43,6 +43,18 @@ namespace OpenNLP.Tools.Coreference.Mention
     /// </summary>
 	public class DictionaryFactory
 	{
+        static IConfigurationRoot _config;
+
+        static IConfigurationRoot Config {
+            get {
+                return _config ?? (
+                    _config = new ConfigurationBuilder()
+                        .SetBasePath(Directory.GetCurrentDirectory())
+                        .AddJsonFile("app.config")
+                        .Build());
+            }
+        }
+
 		/// <summary>
         /// Returns the default implementation of the Dictionary interface.
         /// </summary>
@@ -54,7 +66,7 @@ namespace OpenNLP.Tools.Coreference.Mention
                 {
                     mDictionary = new WordnetDictionary(searchDirectory);
                 }
-                catch (System.IO.IOException e)
+                catch (IOException e)
                 {
                     System.Console.Error.WriteLine(e);
                 }
@@ -64,7 +76,7 @@ namespace OpenNLP.Tools.Coreference.Mention
 
         public static IDictionary GetDictionary()
         {
-            return GetDictionary(ConfigurationManager.AppSettings["WordnetSearchDirectory"]);
+            return GetDictionary(Config["WordnetSearchDirectory"]);
         }
 
 		private static IDictionary mDictionary;

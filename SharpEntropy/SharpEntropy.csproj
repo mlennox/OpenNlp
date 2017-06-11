@@ -11,6 +11,9 @@
     <None Remove="SharpEntropySqlite\obj\SharpEntropySqlite.csproj.nuget.g.targets" />
     <None Remove="SharpEntropySqlite\obj\project.assets.json" />
     <None Remove="SharpEntropySqlite\x86\SQLite.Interop.dll" />
+    <None Remove="SharpEntropySqlite\bin\Debug\netstandard1.4\SharpEntropySqlite.deps.json" />
+    <None Remove="SharpEntropySqlite\obj\Debug\netstandard1.4\SharpEntropySqlite.csproj.CoreCompileInputs.cache" />
+    <None Remove="SharpEntropySqlite\obj\Debug\netstandard1.4\SharpEntropySqlite.csproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SharpEntropy.ndoc" />
@@ -19,5 +22,6 @@
   <ItemGroup>
     <Compile Remove="SharpEntropySqlite\SqliteGisModelReader.cs" />
     <Compile Remove="SharpEntropySqlite\SqliteGisModelWriter.cs" />
+    <Compile Remove="SharpEntropySqlite\obj\Debug\netstandard1.4\SharpEntropySqlite.AssemblyInfo.cs" />
   </ItemGroup>
 </Project>

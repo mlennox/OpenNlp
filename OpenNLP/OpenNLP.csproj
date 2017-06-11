@@ -4,4 +4,28 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tools\Parser\LexParser\" />
+    <Folder Include="Tools\Parser\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Tools\Parser\LexParser\LexicalizedParser.cs" />
+    <Compile Remove="Tools\Parser\Common\ParserGrammar.cs" />
+    <Compile Remove="Tools\Util\Process\PTBTokenizer.cs" />
+    <Compile Remove="Tools\Util\Process\WhitespaceLexer.cs" />
+    <Compile Remove="Tools\Util\Process\WhitespaceTokenizer.cs" />
+    <Compile Remove="Tools\Ling\AnnotationLookup.cs" />
+    <Compile Remove="Tools\Coreference\Mention\JWNLDictionary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpWordNet\SharpWordNet.csproj" />
+    <ProjectReference Include="..\SharpEntropy\SharpEntropy.csproj" />
+  </ItemGroup>
 </Project>
