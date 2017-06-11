@@ -4,7 +4,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0B266E2E-A9C3-4C2C-B7BA-86F553E30F24}</ProjectGuid>
+    <ProjectGuid>{A4FA73C1-2527-4EF9-ACFE-3072386100DC}</ProjectGuid>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -15,14 +15,14 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>SharpEntropySqlite</AssemblyName>
+    <AssemblyName>Lithium</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <OutputType>Library</OutputType>
-    <RootNamespace>SharpEntropySqlite</RootNamespace>
+    <RootNamespace>Netron.Lithium</RootNamespace>
     <StartupObject>
     </StartupObject>
     <FileUpgradeFlags>
@@ -62,8 +62,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>doc.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>true</Optimize>
@@ -76,27 +75,17 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.92.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
     </Reference>
-    <Reference Include="System.Data.SQLite.EF6">
-      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.92.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.Linq">
-      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.92.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
     </Reference>
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
@@ -106,30 +95,85 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SqliteGisModelReader.cs">
+    <Compile Include="Collections\ConnectionCollection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SqliteGisModelWriter.cs">
+    <Compile Include="Collections\ShapeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SharpEntropy.csproj">
-      <Project>{BF0BF8B0-1894-4EDF-BF51-F370B063797E}</Project>
-      <Name>SharpEntropy</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="x64\" />
+    <Compile Include="Connection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Delegates\Delegates.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enums\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GraphAbstract.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Interfaces.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\DataType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\EdgeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\GraphDataAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\GraphDataCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\GraphSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\GraphType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\NodeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\ParentChild.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\ParentChildCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ShapeBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shapes\OvalShape.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shapes\SimpleRectangle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shapes\TextLabel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\LithiumControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Visitors\DeleteVisitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Visitors\ExpanderVisitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="LithiumControl.bmp" />
+    <EmbeddedResource Include="UI\LithiumControl.resx">
+      <DependentUpon>LithiumControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

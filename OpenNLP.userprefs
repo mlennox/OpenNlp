@@ -1,9 +1,18 @@
 ﻿<Properties StartupConfiguration="{8B7FEF34-CEC3-4212-9E8C-9D815E04BFAB}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ModelConverter/Converter.cs">
+    <Files>
+      <File FileName="ModelConverter/Converter.cs" Line="12" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ParseTree PreferredExecutionTarget="MonoDevelop.Default" />
+  <DisabledProjects>
+    <String>Lithium.Old/Lithium.Old.csproj</String>
+    <String>Lithium/Lithium.csproj</String>
+  </DisabledProjects>
 </Properties>

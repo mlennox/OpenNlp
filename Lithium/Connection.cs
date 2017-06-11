@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+
 namespace Netron.Lithium
 {
 	/// <summary>
@@ -25,7 +26,7 @@ namespace Netron.Lithium
 		/// the pen used to draw the connection,
 		/// can switch depending on the hovering state e.g.
 		/// </summary>
-		protected Pen currentPen;
+        protected Pen currentPen;
 
 		#endregion
 
