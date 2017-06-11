@@ -49,7 +49,7 @@ namespace OpenNLP.Tools.Util
         {
             foreach (string squote in c)
             {
-                if (squote.Equals(s, StringComparison.InvariantCultureIgnoreCase))
+                if (squote.Equals(s, StringComparison.OrdinalIgnoreCase))
                     return true;
             }
             return false;

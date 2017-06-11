@@ -34,8 +34,10 @@
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace OpenNLP.Tools.Coreference.Similarity
 {
@@ -421,12 +423,14 @@ namespace OpenNLP.Tools.Coreference.Similarity
 		{
 			if (DebugOn)
 			{
-				var writer = new System.IO.StreamWriter(ModelName + ".events", false, System.Text.Encoding.Default);
-				foreach (SharpEntropy.TrainingEvent trainingEvent in _events)
-                {
-					writer.Write(trainingEvent + "\n");
-				}
-				writer.Close();
+                using (var fileStream = new FileStream(ModelName + ".events", FileMode.Create)){
+                    using (var writer = new StreamWriter(fileStream, Encoding.GetEncoding(0))){
+						foreach (SharpEntropy.TrainingEvent trainingEvent in _events)
+						{
+							writer.Write(trainingEvent + "\n");
+						}
+                    }
+                }
 			}
 
             var trainer = new SharpEntropy.GisTrainer();
