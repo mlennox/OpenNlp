@@ -33,11 +33,12 @@
 // License along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-using System;
+using SharpEntropy;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace OpenNLP.Tools.PosTagger
 {
@@ -258,11 +259,11 @@ namespace OpenNLP.Tools.PosTagger
 		/// <param name="iterations">number of training iterations to perform</param>
 		/// <param name="cut">cutoff value to use for the data indexer</param>
 		/// <returns>Trained GIS model</returns>
-		public static SharpEntropy.GisModel Train(SharpEntropy.ITrainingEventReader eventStream, int iterations, int cut)
+		public static GisModel Train(ITrainingEventReader eventStream, int iterations, int cut)
 		{
-			var trainer = new SharpEntropy.GisTrainer();
-			trainer.TrainModel(iterations, new SharpEntropy.TwoPassDataIndexer(eventStream, cut));
-			return new SharpEntropy.GisModel(trainer);
+			var trainer = new GisTrainer();
+			trainer.TrainModel(iterations, new TwoPassDataIndexer(eventStream, cut));
+			return new GisModel(trainer);
 		}
 
 		/// <summary>
@@ -274,8 +275,16 @@ namespace OpenNLP.Tools.PosTagger
 		/// <returns>Trained GIS model</returns>
 		public static SharpEntropy.GisModel TrainModel(string trainingFile, int iterations, int cutoff)
 		{
-			SharpEntropy.ITrainingEventReader eventReader = new PosEventReader(new StreamReader(trainingFile));
-			return Train(eventReader, iterations, cutoff);
+            using (var fileStream = new FileStream(trainingFile,FileMode.Open))
+            {
+                using (var reader = new StreamReader(fileStream, Encoding.UTF7))
+                {
+					var eventReader = new PosEventReader(reader);
+					return Train(eventReader, iterations, cutoff);
+                }
+            }
+
+			
 		}
 
 
