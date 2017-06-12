@@ -37,6 +37,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SharpEntropy;
 using System.Text;
 
 namespace OpenNLP.Tools.Parser
@@ -676,8 +677,14 @@ namespace OpenNLP.Tools.Parser
 		public static SharpEntropy.GisModel TrainModel(string trainingFile, EventType modelType, string headRulesFile, int iterations, int cutoff)
 		{
 			var rules = new EnglishHeadRules(headRulesFile);
-			SharpEntropy.ITrainingEventReader eventReader = new ParserEventReader(new SharpEntropy.PlainTextByLineDataReader(new StreamReader(trainingFile)), rules, modelType);
-			return Train(eventReader, iterations, cutoff);
+
+            using (var fileStream = new FileStream(trainingFile, FileMode.Open)){
+                using (var reader = new StreamReader(fileStream, Encoding.UTF7)){
+					var dataReader = new PlainTextByLineDataReader(reader);
+                    var eventReader = new ParserEventReader(dataReader, rules, modelType);
+                    return Train(eventReader, iterations, cutoff);
+                }
+            }
 		}
 	}
 }

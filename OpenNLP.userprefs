@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Parser/MaximumEntropyParser.cs">
     <Files>
       <File FileName="OpenNLP/Tools/PosTagger/PosLookupList.cs" Line="108" Column="14" />
-      <File FileName="OpenNLP/Tools/Util/International/Morph/MorphoFeatureSpecification.cs" Line="95" Column="10" />
+      <File FileName="OpenNLP/Tools/Util/International/Morph/MorphoFeatureSpecification.cs" Line="82" Column="14" />
+      <File FileName="OpenNLP/Tools/Parser/MaximumEntropyParser.cs" Line="679" Column="134" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -80,7 +80,8 @@ namespace OpenNLP.Tools.Util.International.Morph
             {
                 return new Tuple<string, string>(word, NoAnalysis);
             }
-            string[] toks = morphStr.Split(new[] {ToLiteral(LemmaMark)}, StringSplitOptions.None);
+            // TODO : no idea if this will work - if only there were tests..
+            string[] toks = morphStr.Split(new[] {LemmaMark}, StringSplitOptions.None);
             if (toks.Length != 2)
             {
                 throw new Exception("Invalid morphology string: " + morphStr);
