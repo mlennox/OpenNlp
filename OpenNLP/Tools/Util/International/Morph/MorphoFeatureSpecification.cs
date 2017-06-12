@@ -22,7 +22,7 @@ namespace OpenNLP.Tools.Util.International.Morph
         /// <summary>
         /// Delimiter for associating a surface form with a morphological analysis, e.g., his~#PRP_3ms
         /// </summary>
-        public static readonly string MorphoMark = "~#";
+        //public static readonly string MorphoMark = "~#";
 
         public static readonly string LemmaMark = "|||";
 
@@ -94,16 +94,16 @@ namespace OpenNLP.Tools.Util.International.Morph
             return ActiveFeatures.ToString();
         }
 
-        private static string ToLiteral(string input)
-        {
-            using (var writer = new StringWriter())
-            {
-                using (var provider = CodeDomProvider.CreateProvider("CSharp"))
-                {
-                    provider.GenerateCodeFromExpression(new CodePrimitiveExpression(input), writer, null);
-                    return writer.ToString();
-                }
-            }
-        }
+        //private static string ToLiteral(string input)
+        //{
+        //    using (var writer = new StringWriter())
+        //    {
+        //        using (var provider = CodeDomProvider.CreateProvider("CSharp"))
+        //        {
+        //            provider.GenerateCodeFromExpression(new CodePrimitiveExpression(input), writer, null);
+        //            return writer.ToString();
+        //        }
+        //    }
+        //}
     }
 }

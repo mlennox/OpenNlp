@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/PosTagger/PosLookupList.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="OpenNLP/Tools/PosTagger/PosLookupList.cs" Line="62" Column="91" />
+      <File FileName="OpenNLP/Tools/PosTagger/PosLookupList.cs" Line="108" Column="14" />
+      <File FileName="OpenNLP/Tools/Util/International/Morph/MorphoFeatureSpecification.cs" Line="95" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
