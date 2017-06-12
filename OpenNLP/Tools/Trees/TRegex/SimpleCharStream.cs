@@ -92,7 +92,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             }
             catch (Exception t)
             {
-                throw new SystemException(t.Message);
+                throw new Exception(t.Message);
             }
 
 

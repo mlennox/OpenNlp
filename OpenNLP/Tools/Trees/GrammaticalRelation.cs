@@ -281,7 +281,8 @@ namespace OpenNLP.Tools.Trees
                 }
                 catch (TregexParseException pe)
                 {
-                    throw new SystemException("Bad pattern: " + pattern, pe);
+                    // TODO : consider custiom exception
+                    throw new Exception("Bad pattern: " + pattern, pe);
                 }
             }
 

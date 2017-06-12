@@ -990,7 +990,7 @@ namespace OpenNLP.Tools.Trees
             {
                 if (!(head.Label() is CoreLabel))
                 {
-                    throw new SystemException("Horrible bug");
+                    throw new Exception("Horrible bug");
                 }
                 var headLabel = (CoreLabel) head.Label();
                 nodeLabel.Set(typeof (TreeCoreAnnotations.HeadWordAnnotation),
@@ -2311,7 +2311,7 @@ namespace OpenNLP.Tools.Trees
             }
             catch (IOException ioe)
             {
-                throw new SystemException("Tree.valueOf() tree construction failed", ioe);
+                throw new Exception("Tree.valueOf() tree construction failed", ioe);
             }
         }
 

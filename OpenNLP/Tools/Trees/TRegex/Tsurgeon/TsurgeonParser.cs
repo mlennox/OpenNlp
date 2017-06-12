@@ -129,10 +129,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is Exception)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -366,10 +366,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -410,10 +410,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -475,10 +475,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -520,10 +520,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -611,10 +611,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -656,10 +656,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -725,10 +725,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -789,10 +789,10 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 {
                     JjTree.PopNode();
                 }
-                if (jjte000 is SystemException)
-                {
-                    throw jjte000;
-                }
+                //if (jjte000 is SystemException)
+                //{
+                //    throw jjte000;
+                //}
                 if (jjte000 is ParseException)
                 {
                     throw jjte000;
@@ -1212,7 +1212,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             }
             catch ( /*java.io.UnsupportedEncodingException*/Exception e)
             {
-                throw new SystemException(e.Message);
+                throw new Exception(e.Message);
             }
             token_source = new TsurgeonParserTokenManager(jj_input_stream);
             token = new Token();

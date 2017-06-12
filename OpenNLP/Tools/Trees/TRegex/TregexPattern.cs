@@ -314,7 +314,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             neg = true;
             if (opt)
             {
-                throw new SystemException("Node cannot be both negated and optional.");
+                throw new Exception("Node cannot be both negated and optional.");
             }
         }
 
@@ -323,7 +323,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             opt = true;
             if (neg)
             {
-                throw new SystemException("Node cannot be both negated and optional.");
+                throw new Exception("Node cannot be both negated and optional.");
             }
         }
 

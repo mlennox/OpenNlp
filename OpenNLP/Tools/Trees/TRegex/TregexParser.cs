@@ -1071,7 +1071,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             }
             catch (IOException e)
             {
-                throw new SystemException("", e);
+                throw new Exception("", e);
             }
             token_source = new TregexParserTokenManager(jj_input_stream);
             token = new Token();
@@ -1096,7 +1096,7 @@ namespace OpenNLP.Tools.Trees.TRegex
             }
             catch (IOException e)
             {
-                throw new SystemException("", e);
+                throw new Exception("", e);
             }
             token_source.ReInit(jj_input_stream);
             token = new Token();

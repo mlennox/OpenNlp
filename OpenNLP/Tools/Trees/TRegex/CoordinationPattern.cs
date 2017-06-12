@@ -19,7 +19,7 @@ namespace OpenNLP.Tools.Trees.TRegex
         {
             if (children.Count < 2)
             {
-                throw new SystemException("Coordination node must have at least 2 children.");
+                throw new Exception("Coordination node must have at least 2 children.");
             }
             this.children = children;
             this.isConj = isConj;

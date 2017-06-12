@@ -32,7 +32,7 @@ namespace OpenNLP.Tools.Trees
             }
             else
             {
-                throw new SystemException("Tree is not a descendant of root.");
+                throw new Exception("Tree is not a descendant of root.");
             }
         }
 
@@ -75,7 +75,7 @@ namespace OpenNLP.Tools.Trees
             }
             else
             {
-                throw new SystemException("Tree is not a descendant of root.");
+                throw new Exception("Tree is not a descendant of root.");
             }
         }
 

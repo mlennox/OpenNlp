@@ -232,7 +232,7 @@ namespace OpenNLP.Tools.Trees
 
         private static void ThrowDepFormatException(string dep)
         {
-            throw new SystemException(
+            throw new Exception(
                 string.Format("Dependencies should be for the format 'type(arg-idx, arg-idx)'. Could not parse '{0}'",
                     dep));
         }
@@ -246,7 +246,7 @@ namespace OpenNLP.Tools.Trees
         {
             if (tokens.Count != posTags.Count)
             {
-                throw new SystemException(String.Format(
+                throw new Exception(String.Format(
                     "tokens.Count: {0} != pos.Count: {1}\n", tokens.Count, posTags.Count));
             }
 
@@ -377,7 +377,7 @@ namespace OpenNLP.Tools.Trees
                 }
                 else
                 {
-                    throw new SystemException("Should never be here.");
+                    throw new Exception("Should never be here.");
                 }
             }
             foreach (TreeGraphNode kid in t.Children())
@@ -469,7 +469,7 @@ namespace OpenNLP.Tools.Trees
                     }
                     else
                     {
-                        throw new SystemException("Should never be here");
+                        throw new Exception("Should never be here");
                     }
                 }
             }

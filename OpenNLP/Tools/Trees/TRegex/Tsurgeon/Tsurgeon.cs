@@ -268,7 +268,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                 }
                 catch (NullReferenceException npe)
                 {
-                    throw new SystemException(
+                    throw new Exception(
                         "Tsurgeon.processPatternsOnTree failed to match label for pattern: " + op.Item1 + ", " +
                         op.Item2, npe);
                 }

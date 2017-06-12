@@ -70,7 +70,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                     parent = relativeNode.Parent(tree);
                     if (parent == null)
                     {
-                        throw new SystemException("Error: looking for a non-existent parent in tree " + tree + " for \"" +
+                        throw new Exception("Error: looking for a non-existent parent in tree " + tree + " for \"" +
                                                   ToString() + "\"");
                     }
                     int index = parent.ObjectIndexOf(relativeNode);
@@ -84,7 +84,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                     }
                     else
                     {
-                        throw new SystemException("Error: Haven't dealt with relation " + location.relation + " yet.");
+                        throw new Exception("Error: Haven't dealt with relation " + location.relation + " yet.");
                     }
                 }
                 return new Tuple<Tree, int>(parent, newIndex);
