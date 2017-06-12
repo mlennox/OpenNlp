@@ -261,13 +261,27 @@ namespace OpenNLP.Tools.SentenceDetect
         {
             var trainer = new GisTrainer();
 
-            var readers = filePaths.Select(path => new StreamReader(path)).ToList();
+
+
+
+            var readers = filePaths.Select(path =>
+            {
+                var fileStream = new FileStream(path, FileMode.Open);
+                return new StreamReader(fileStream, Encoding.UTF7);
+            });
 
             // train the model
-            ITrainingDataReader<string> dataReader = new MultipleFilesPlainTextByLineDataReader(readers);
+            ITrainingDataReader<string> dataReader = new MultipleFilesPlainTextByLineDataReader(readers.ToList());
             ITrainingEventReader eventReader = new SentenceDetectionEventReader(dataReader, scanner);
 
             trainer.TrainModel(eventReader, iterations, cut);
+
+            // NOTE : not sure this is required, but...
+            foreach (var reader in readers)
+            {
+                reader.BaseStream.Dispose();
+                reader.Dispose();
+            }
 
             return new GisModel(trainer);
         }

@@ -37,6 +37,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace OpenNLP.Tools.Util
 {
@@ -187,15 +188,18 @@ namespace OpenNLP.Tools.Util
 
         public virtual void Write(string fileName, int countCutoff, string delim)
         {
-            using (var streamWriter = new StreamWriter(fileName, false))
+            using (var fileStream = new FileStream(fileName, FileMode.Create))
             {
-                foreach (T key in mCountedSet.Keys)
+                using (var writer = new StreamWriter(fileStream, Encoding.UTF7))
                 {
-                    int count = this.GetCount(key);
-                    if (count >= countCutoff)
-                    {
-                        streamWriter.WriteLine(count + delim + key);
-                    }
+					foreach (T key in mCountedSet.Keys)
+					{
+						int count = this.GetCount(key);
+						if (count >= countCutoff)
+						{
+							writer.WriteLine(count + delim + key);
+						}
+					}
                 }
             }
         }
@@ -203,18 +207,20 @@ namespace OpenNLP.Tools.Util
 
         public virtual void Write(string fileName, int countCutoff, string delim, System.Text.Encoding encoding)
         {
-            using (var streamWriter = new StreamWriter(fileName, false, encoding))
+            using (var fileStream = new FileStream(fileName, FileMode.Create))
             {
-                foreach (T key in mCountedSet.Keys)
+                using (var writer = new StreamWriter(fileStream, Encoding.UTF7))
                 {
-                    int count = this.GetCount(key);
-                    if (count >= countCutoff)
-                    {
-                        streamWriter.WriteLine(count + delim + key);
-                    }
+					foreach (T key in mCountedSet.Keys)
+					{
+						int count = this.GetCount(key);
+						if (count >= countCutoff)
+						{
+							writer.WriteLine(count + delim + key);
+						}
+					}
                 }
             }
-
         }
 
         #endregion
