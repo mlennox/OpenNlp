@@ -36,6 +36,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text;
 
 namespace OpenNLP.Tools.Coreference.Similarity
 {
@@ -193,12 +194,14 @@ namespace OpenNLP.Tools.Coreference.Similarity
         {
             if (mDebugOn)
             {
-                StreamWriter writer = new StreamWriter(mModelName + ".events", false, System.Text.Encoding.Default);
-               foreach (SharpEntropy.TrainingEvent currentEvent in mEvents)
-                {
-                    writer.Write(currentEvent.ToString() + "\n");
+                using (var fileStream = new FileStream(mModelName + ".events", FileMode.Create)){
+                    using (var writer = new StreamWriter(fileStream, Encoding.GetEncoding(0))){
+						foreach (SharpEntropy.TrainingEvent currentEvent in mEvents)
+						{
+							writer.Write(currentEvent.ToString() + "\n");
+						}
+                    }
                 }
-                writer.Close();
             }
 
             SharpEntropy.GisTrainer trainer = new SharpEntropy.GisTrainer();
@@ -224,12 +227,15 @@ namespace OpenNLP.Tools.Coreference.Similarity
         private Util.Set<string> ReadNames(string nameFile)
 		{
 			Util.Set<string> names = new Util.HashSet<string>();
-			
-            var nameReader = new StreamReader(nameFile, System.Text.Encoding.Default);
-			for (string line = nameReader.ReadLine(); line != null; line = nameReader.ReadLine())
-			{
-				names.Add(line);
-			}
+
+            using (var fileStream = new FileStream(nameFile, FileMode.Open)){
+                using (var reader = new StreamReader(fileStream, Encoding.GetEncoding(0))){
+					for (string line = reader.ReadLine(); line != null; line = reader.ReadLine())
+					{
+						names.Add(line);
+					}
+                }
+            }
 			return names;
 		}
 
