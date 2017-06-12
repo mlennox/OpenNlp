@@ -173,7 +173,7 @@ namespace OpenNLP.Tools.Trees.TRegex
                         stringFilter =
                             a =>
                                 matchedGroup.Split('|')
-                                    .Any(s => s.Equals(a, StringComparison.InvariantCultureIgnoreCase));
+                                            .Any(s => s.Equals(a, StringComparison.OrdinalIgnoreCase));
                     }
                 }
                 else if (PrefixPattern.IsMatch(desc))

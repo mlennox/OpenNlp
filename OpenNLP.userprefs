@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonParser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Trees/TRegex/DescriptionPattern.cs">
     <Files>
       <File FileName="OpenNLP/Tools/Trees/TRegex/CoordinationPattern.cs" Line="22" Column="27" />
       <File FileName="OpenNLP/Tools/Trees/GrammaticalStructure.cs" Line="1073" Column="21" />
@@ -10,7 +10,9 @@
       <File FileName="OpenNLP/Tools/Trees/TRegex/TregexParser.cs" Line="1099" Column="27" />
       <File FileName="OpenNLP/Tools/Trees/TRegex/TregexPattern.cs" Line="326" Column="27" />
       <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/Tsurgeon.cs" Line="271" Column="31" />
-      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonParser.cs" Line="130" Column="38" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonParser.cs" Line="1215" Column="27" />
+      <File FileName="OpenNLP/Tools/Trees/EnglishGrammaticalStructure.cs" Line="1972" Column="84" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/DescriptionPattern.cs" Line="176" Column="101" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -210,8 +210,8 @@ namespace OpenNLP.Tools.Trees
                 foreach (TypedDependency td in list)
                 {
                     if (Math.Abs(td.Gov.Index() - td.Dep.Index()) == 1 &&
-                        td.Gov.Value().Equals(mwp[1], StringComparison.InvariantCultureIgnoreCase)
-                        && td.Dep.Value().Equals(mwp[0], StringComparison.InvariantCultureIgnoreCase))
+                        td.Gov.Value().Equals(mwp[1], StringComparison.OrdinalIgnoreCase)
+                        && td.Dep.Value().Equals(mwp[0], StringComparison.OrdinalIgnoreCase))
                     {
                         mwp1 = td.Gov;
                         dep = td;
@@ -316,7 +316,7 @@ namespace OpenNLP.Tools.Trees
 
                 foreach (TypedDependency td in list)
                 {
-                    if (td.Dep.Value().Equals(mwp[0], StringComparison.InvariantCultureIgnoreCase)
+                    if (td.Dep.Value().Equals(mwp[0], StringComparison.OrdinalIgnoreCase)
                         &&
                         (td.Reln == EnglishGrammaticalRelations.PhrasalVerbParticle ||
                          td.Reln == EnglishGrammaticalRelations.AdverbialModifier
@@ -342,7 +342,7 @@ namespace OpenNLP.Tools.Trees
                 foreach (TypedDependency td1 in list)
                 {
                     if (td1.Reln == EnglishGrammaticalRelations.PrepositionalModifier
-                        && td1.Dep.Value().Equals(mwp[1], StringComparison.InvariantCultureIgnoreCase)
+                        && td1.Dep.Value().Equals(mwp[1], StringComparison.OrdinalIgnoreCase)
                         && Math.Abs(td1.Dep.Index() - mwp0.Index()) == 1 && td1.Gov.Equals(governor))
                     {
 // we
@@ -452,8 +452,8 @@ namespace OpenNLP.Tools.Trees
 
                 foreach (TypedDependency td in list)
                 {
-                    if (td.Gov.Value().Equals(mwp[0], StringComparison.InvariantCultureIgnoreCase)
-                        && td.Dep.Value().Equals(mwp[1], StringComparison.InvariantCultureIgnoreCase)
+                    if (td.Gov.Value().Equals(mwp[0], StringComparison.OrdinalIgnoreCase)
+                        && td.Dep.Value().Equals(mwp[1], StringComparison.OrdinalIgnoreCase)
                         && Math.Abs(td.Gov.Index() - td.Dep.Index()) == 1)
                     {
                         mwp0 = td.Gov;
@@ -469,7 +469,7 @@ namespace OpenNLP.Tools.Trees
                 foreach (TypedDependency td in list)
                 {
                     if (td.Gov.Equals(mwp1) &&
-                        td.Dep.Value().Equals(mwp[2], StringComparison.InvariantCultureIgnoreCase)
+                        td.Dep.Value().Equals(mwp[2], StringComparison.OrdinalIgnoreCase)
                         && Math.Abs(td.Gov.Index() - td.Dep.Index()) == 1)
                     {
                         mwp2 = td.Dep;
@@ -576,8 +576,8 @@ namespace OpenNLP.Tools.Trees
                 // indexes = 1)
                 foreach (TypedDependency td in list)
                 {
-                    if (td.Gov.Value().Equals(mwp[0], StringComparison.InvariantCultureIgnoreCase)
-                        && td.Dep.Value().Equals(mwp[1], StringComparison.InvariantCultureIgnoreCase)
+                    if (td.Gov.Value().Equals(mwp[0], StringComparison.OrdinalIgnoreCase)
+                        && td.Dep.Value().Equals(mwp[1], StringComparison.OrdinalIgnoreCase)
                         && Math.Abs(td.Gov.Index() - td.Dep.Index()) == 1)
                     {
                         mwp0 = td.Gov;
@@ -592,7 +592,7 @@ namespace OpenNLP.Tools.Trees
                 foreach (TypedDependency td in list)
                 {
                     if (td.Gov.Equals(mwp0) &&
-                        td.Dep.Value().Equals(mwp[2], StringComparison.InvariantCultureIgnoreCase)
+                        td.Dep.Value().Equals(mwp[2], StringComparison.OrdinalIgnoreCase)
                         && Math.Abs(td.Gov.Index() - td.Dep.Index()) == 2)
                     {
                         mwp2 = td.Dep;
@@ -714,7 +714,7 @@ namespace OpenNLP.Tools.Trees
                             continue;
                         }
                         if (!auxDep.Gov.Equals(typedDep.Dep) ||
-                            !auxDep.Dep.Value().Equals("to", StringComparison.InvariantCultureIgnoreCase))
+                            !auxDep.Dep.Value().Equals("to", StringComparison.OrdinalIgnoreCase))
                         {
                             continue;
                         }
@@ -1690,8 +1690,8 @@ namespace OpenNLP.Tools.Trees
                     continue;
                 }
 
-                if ((modifier.Value().Equals("to", StringComparison.InvariantCultureIgnoreCase) && hasAux) ||
-                    (!modifier.Value().Equals("to", StringComparison.InvariantCultureIgnoreCase) && !hasAux))
+                if ((modifier.Value().Equals("to", StringComparison.OrdinalIgnoreCase) && hasAux) ||
+                    (!modifier.Value().Equals("to", StringComparison.OrdinalIgnoreCase) && !hasAux))
                 {
                     continue;
                 }
@@ -1968,8 +1968,8 @@ namespace OpenNLP.Tools.Trees
             TypedDependency dep = null;
             foreach (TypedDependency td in list)
             {
-                if (td.Gov.Value().Equals(wMwp0, StringComparison.InvariantCultureIgnoreCase) &&
-                    td.Dep.Value().Equals(wMwp1, StringComparison.InvariantCultureIgnoreCase) &&
+                if (td.Gov.Value().Equals(wMwp0, StringComparison.OrdinalIgnoreCase) &&
+                    td.Dep.Value().Equals(wMwp1, StringComparison.OrdinalIgnoreCase) &&
                     Math.Abs(td.Gov.Index() - td.Dep.Index()) == 1)
                 {
                     mwp0 = td.Gov;
