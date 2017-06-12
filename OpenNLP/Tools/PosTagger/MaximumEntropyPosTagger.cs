@@ -273,7 +273,7 @@ namespace OpenNLP.Tools.PosTagger
 		/// <param name="iterations">number of training iterations to perform</param>
 		/// <param name="cutoff">Cutoff value to use for the data indexer</param>
 		/// <returns>Trained GIS model</returns>
-		public static SharpEntropy.GisModel TrainModel(string trainingFile, int iterations, int cutoff)
+		public static GisModel TrainModel(string trainingFile, int iterations, int cutoff)
 		{
             using (var fileStream = new FileStream(trainingFile,FileMode.Open))
             {
