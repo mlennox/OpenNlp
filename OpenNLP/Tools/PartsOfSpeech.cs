@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Reflection;
 
 namespace OpenNLP.Tools
 {
@@ -124,8 +121,8 @@ namespace OpenNLP.Tools
         /// </summary>
         public static string Write(string pos)
         {
-            var fields = typeof(PartsOfSpeech).GetFields();
-            foreach (var fieldInfo in fields)
+            var fields = typeof(PartsOfSpeech).GetTypeInfo().DeclaredFields;
+            foreach (FieldInfo fieldInfo in fields)
             {
                 var value = (string)fieldInfo.GetValue(null);
                 if (value == pos)
@@ -141,7 +138,7 @@ namespace OpenNLP.Tools
         /// </summary>
         public static bool IsSupportedPartOfSpeech(string function)
         {
-            var fields = typeof(PartsOfSpeech).GetFields();
+            var fields = typeof(PartsOfSpeech).GetTypeInfo().DeclaredFields;
             return fields
                 .Select(fieldInfo => (string) fieldInfo.GetValue(null))
                 .Any(value => value == function);

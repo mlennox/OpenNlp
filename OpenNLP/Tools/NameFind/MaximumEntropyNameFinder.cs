@@ -1,4 +1,4 @@
-//Copyright (C) 2005 Richard J. Northedge
+﻿//Copyright (C) 2005 Richard J. Northedge
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -33,9 +33,10 @@
 //License along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-using System;
+using SharpEntropy;
 using System.Collections;
 using OpenNLP.Tools.Util;
+using System.IO;
 
 namespace OpenNLP.Tools.NameFind
 {
@@ -44,7 +45,7 @@ namespace OpenNLP.Tools.NameFind
 	/// </summary>
 	public class MaximumEntropyNameFinder : INameFinder
 	{
-		private SharpEntropy.IMaximumEntropyModel mModel;
+		private IMaximumEntropyModel mModel;
 		private INameContextGenerator mContextGenerator;
 		private Sequence mBestSequence;
 		private BeamSearch mBeam;
@@ -62,7 +63,7 @@ namespace OpenNLP.Tools.NameFind
 		/// <param name="model">
 		/// The model to be used to find names.
 		/// </param>
-		public MaximumEntropyNameFinder(SharpEntropy.IMaximumEntropyModel model):
+		public MaximumEntropyNameFinder(IMaximumEntropyModel model):
             this(model, new DefaultNameContextGenerator(10), 10){ }
 		
 		/// <summary>
@@ -74,7 +75,7 @@ namespace OpenNLP.Tools.NameFind
 		/// <param name="contextGenerator">
 		/// The context generator to be used with this name finder.
 		/// </param>
-		public MaximumEntropyNameFinder(SharpEntropy.IMaximumEntropyModel model, INameContextGenerator contextGenerator):
+		public MaximumEntropyNameFinder(IMaximumEntropyModel model, INameContextGenerator contextGenerator):
             this(model, contextGenerator, 10){}
 		
 		/// <summary>
@@ -89,7 +90,7 @@ namespace OpenNLP.Tools.NameFind
 		/// <param name="beamSize">
 		/// The size of the beam to be used in decoding this model.
 		/// </param>
-		public MaximumEntropyNameFinder(SharpEntropy.IMaximumEntropyModel model, INameContextGenerator contextGenerator, int beamSize)
+		public MaximumEntropyNameFinder(IMaximumEntropyModel model, INameContextGenerator contextGenerator, int beamSize)
 		{
 			mModel = model;
 			mContextGenerator = contextGenerator;
@@ -162,22 +163,27 @@ namespace OpenNLP.Tools.NameFind
 			return mBestSequence.GetProbabilities();
 		}
 		
-		private static SharpEntropy.GisModel Train(SharpEntropy.ITrainingEventReader eventReader, int iterations, int cutoff)
+		private static GisModel Train(ITrainingEventReader eventReader, int iterations, int cutoff)
 		{
-			SharpEntropy.GisTrainer trainer = new SharpEntropy.GisTrainer();
-			trainer.TrainModel(iterations, new SharpEntropy.TwoPassDataIndexer(eventReader, cutoff));
-			return new SharpEntropy.GisModel(trainer);
+			GisTrainer trainer = new GisTrainer();
+			trainer.TrainModel(iterations, new TwoPassDataIndexer(eventReader, cutoff));
+			return new GisModel(trainer);
 		}
 		
-		public static SharpEntropy.GisModel TrainModel(string trainingFile)
+		public static GisModel TrainModel(string trainingFile)
 		{
 			return TrainModel(trainingFile, 100, 5);
 		}
 
-		public static SharpEntropy.GisModel TrainModel(string trainingFile, int iterations, int cutoff)
+		public static GisModel TrainModel(string trainingFile, int iterations, int cutoff)
 		{
-			SharpEntropy.ITrainingEventReader eventReader = new NameFinderEventReader(new SharpEntropy.PlainTextByLineDataReader(new System.IO.StreamReader(trainingFile)));
-			return Train(eventReader, iterations, cutoff);
+            using (var fileStream = new FileStream(trainingFile, FileMode.Open)){
+                using (var reader = new StreamReader(fileStream)){ // TODO: Encoding??
+                    var lineDataReader = new PlainTextByLineDataReader(reader);
+                    var eventReader = new NameFinderEventReader(lineDataReader);
+                    return Train(eventReader, iterations, cutoff);
+                }
+            }
 		}
 
 
@@ -208,7 +214,7 @@ namespace OpenNLP.Tools.NameFind
             /// <param name="beamSize">
             /// The size of the beam to use in searching.
             /// </param>
-            public NameBeamSearch(MaximumEntropyNameFinder nameFinder, int size, INameContextGenerator contextGenerator, SharpEntropy.IMaximumEntropyModel model, int beamSize):
+            public NameBeamSearch(MaximumEntropyNameFinder nameFinder, int size, INameContextGenerator contextGenerator, IMaximumEntropyModel model, int beamSize):
                 base(size, contextGenerator, model, beamSize)
             {
                 _nameFinder = nameFinder;
