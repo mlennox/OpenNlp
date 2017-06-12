@@ -247,7 +247,8 @@ namespace OpenNLP.Tools.Util
         {
             if (psize > newSize)
             {
-                throw new SystemException("You cannot set capacity to smaller than the current size.");
+                // TODO : consider custom exception
+                throw new Exception("You cannot set capacity to smaller than the current size.");
             }
             var newKeys = new Type[newSize];
             var newValues = new Object[newSize];

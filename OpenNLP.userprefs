@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/SentenceDetect/MaximumEntropySentenceDetector.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Util/ArrayCoreMap.cs">
     <Files>
-      <File FileName="OpenNLP/Tools/SentenceDetect/MaximumEntropySentenceDetector.cs" Line="283" Column="34" />
-      <File FileName="OpenNLP/Tools/Util/CountedSet.cs" Line="190" Column="56" />
+      <File FileName="OpenNLP/Tools/Util/ArrayCoreMap.cs" Line="250" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
