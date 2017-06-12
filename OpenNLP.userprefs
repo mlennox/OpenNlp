@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Util/StringUtils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Parser/EnglishHeadRules.cs">
     <Files>
       <File FileName="OpenNLP/Tools/Coreference/Resolver/MaximumEntropyResolver.cs" Line="432" Column="9" />
       <File FileName="OpenNLP/Tools/Trees/PennTreeReader.cs" Line="263" Column="47" />
       <File FileName="OpenNLP/Tools/Trees/TRegex/SimpleCharStream.cs" Line="134" Column="40" />
       <File FileName="SharpEntropy/SharpEntropySqlite/SqliteGisModelWriter.cs" Line="56" Column="20" />
       <File FileName="OpenNLP/Tools/Util/StringUtils.cs" Line="904" Column="17" />
+      <File FileName="OpenNLP/Tools/Parser/EnglishHeadRules.cs" Line="153" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

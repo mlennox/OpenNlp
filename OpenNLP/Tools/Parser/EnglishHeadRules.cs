@@ -33,7 +33,7 @@
 //License along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-using System;
+using System.Text;
 using System.IO;
 using System.Collections.Generic;
 using OpenNLP.Tools.Trees;
@@ -150,30 +150,33 @@ namespace OpenNLP.Tools.Parser
 		
 		private void ReadHeadRules(string file)
 		{
-			using (var headRulesStreamReader = new StreamReader(file, System.Text.Encoding.UTF7))
-			{
-				string line = headRulesStreamReader.ReadLine();
-                mHeadRules = new Dictionary<string, HeadRule>(30);
-			
-				while (line != null)
+            using (var fileStream = new FileStream(file, FileMode.Open)){
+                using (var headRulesStreamReader = new StreamReader(fileStream, Encoding.UTF7))
 				{
-					var tokenizer = new Util.StringTokenizer(line);
-					string number = tokenizer.NextToken();
-					string type = tokenizer.NextToken();
-					string direction = tokenizer.NextToken();
-					var tags = new string[int.Parse(number, System.Globalization.CultureInfo.InvariantCulture)];
-					int currentTag = 0;
-					string tag = tokenizer.NextToken();
-					while (tag != null)
+					string line = headRulesStreamReader.ReadLine();
+					mHeadRules = new Dictionary<string, HeadRule>(30);
+
+					while (line != null)
 					{
-						tags[currentTag] = tag;
-						currentTag++;
-						tag = tokenizer.NextToken();
+						var tokenizer = new Util.StringTokenizer(line);
+						string number = tokenizer.NextToken();
+						string type = tokenizer.NextToken();
+						string direction = tokenizer.NextToken();
+						var tags = new string[int.Parse(number, System.Globalization.CultureInfo.InvariantCulture)];
+						int currentTag = 0;
+						string tag = tokenizer.NextToken();
+						while (tag != null)
+						{
+							tags[currentTag] = tag;
+							currentTag++;
+							tag = tokenizer.NextToken();
+						}
+						mHeadRules[type] = new HeadRule((direction == "1"), tags);
+						line = headRulesStreamReader.ReadLine();
 					}
-					mHeadRules[type] = new HeadRule((direction == "1"), tags);
-					line = headRulesStreamReader.ReadLine();
-				}			
-			}
+				}
+            }
+			
 		}
 		
 		private class HeadRule
