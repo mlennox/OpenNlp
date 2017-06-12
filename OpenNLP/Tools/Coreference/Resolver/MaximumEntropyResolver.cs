@@ -38,6 +38,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using SharpEntropy.IO;
+using System.IO;
 
 namespace OpenNLP.Tools.Coreference.Resolver
 {
@@ -421,15 +422,17 @@ namespace OpenNLP.Tools.Coreference.Resolver
 			{
 				if (DebugOn)
 				{
-					System.Console.Error.WriteLine(this.ToString() + " referential");
-                    using (var writer = new System.IO.StreamWriter(_modelName + ".events", false, System.Text.Encoding.Default))
-                    {
-                        foreach (SharpEntropy.TrainingEvent e in _events)
-                        {
-                            writer.Write(e.ToString() + "\n");
-                        }
-                        writer.Close();
+					Console.Error.WriteLine(this.ToString() + " referential");
+                    using (var fileStream = new FileStream(_modelName + ".events", FileMode.Create)){
+                        using (var writer = new StreamWriter(fileStream, Encoding.GetEncoding(0)))
+						{
+							foreach (SharpEntropy.TrainingEvent e in _events)
+							{
+								writer.Write(e.ToString() + "\n");
+							}
+						}
                     }
+
 				}
 
                 var trainer = new SharpEntropy.GisTrainer();

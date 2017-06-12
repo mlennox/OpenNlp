@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using OpenNLP.Tools.Ling;
 using OpenNLP.Tools.Util.Process;
 
@@ -265,7 +264,7 @@ namespace OpenNLP.Tools.Trees
         /// </summary>
         public void Close()
         {
-            reader.Close();
+            reader.Dispose();
         }
 
     }
