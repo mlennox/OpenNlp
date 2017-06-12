@@ -40,6 +40,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using OpenNLP.Tools.Util;
 using SharpEntropy;
+using System.Text;
 
 namespace OpenNLP.Tools.Tokenize
 {
@@ -163,8 +164,13 @@ namespace OpenNLP.Tools.Tokenize
             var dataReaders = new List<StreamReader>();
 	        foreach (var path in inputFilePaths)
 	        {
-                var dataReader = new StreamReader(path);
-                dataReaders.Add(dataReader);
+                using (var fileStream = new FileStream(path, FileMode.Open))
+                {
+                    using (var reader = new StreamReader(fileStream, Encoding.UTF7))
+                    {
+						dataReaders.Add(reader);
+                    }
+                }
 	        }
 
             // train the model

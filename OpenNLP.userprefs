@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Trees/TRegex/VariableStrings.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Tokenize/MaximumEntropyTokenizer.cs">
     <Files>
-      <File FileName="OpenNLP/Tools/PosTagger/MaximumEntropyPosTagger.cs" Line="275" Column="29" />
-      <File FileName="OpenNLP/Tools/Trees/TRegex/VariableStrings.cs" Line="55" Column="26" />
+      <File FileName="OpenNLP/Tools/Tokenize/MaximumEntropyTokenizer.cs" Line="166" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
