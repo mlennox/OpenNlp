@@ -39,7 +39,8 @@ namespace OpenNLP.Tools.Util
             }
             catch (IOException ex)
             {
-                throw new SystemException("Cannot convert property as string", ex);
+                // TODO : consider custom exception
+                throw new Exception("Cannot convert property as string", ex);
             }
         }
 

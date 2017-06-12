@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/PartsOfSpeech.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Util/PropertiesUtils.cs">
     <Files>
-      <File FileName="OpenNLP/Tools/PartsOfSpeech.cs" Line="125" Column="47" />
+      <File FileName="OpenNLP/Tools/Util/PropertiesUtils.cs" Line="42" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
