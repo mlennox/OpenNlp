@@ -33,7 +33,8 @@
 //License along with this program; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-using System;
+using System.IO;
+using System.Text;
 using System.Collections.Generic;
 
 namespace OpenNLP.Tools.PosTagger
@@ -59,7 +60,7 @@ namespace OpenNLP.Tools.PosTagger
 		/// <param name="caseSensitive">
 		/// Specifies whether the tag dictionary is case sensitive or not.
 		/// </param>
-		public PosLookupList(string file, bool caseSensitive) : this(new System.IO.StreamReader(file, System.Text.Encoding.UTF7), caseSensitive)
+        public PosLookupList(string file, bool caseSensitive) : this(new StreamReader(new FileStream(file, FileMode.Open), Encoding.UTF7), caseSensitive)
 		{
 		}
 		
@@ -100,7 +101,7 @@ namespace OpenNLP.Tools.PosTagger
 		{
 			if (!mIsCaseSensitive)
 			{
-                word = word.ToLower(System.Globalization.CultureInfo.InvariantCulture);
+                word = word.ToLowerInvariant();
             }
 
             if (mDictionary.ContainsKey(word))
