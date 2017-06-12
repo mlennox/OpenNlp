@@ -111,24 +111,26 @@ namespace OpenNLP.Tools.PosTagger
 		/// </param>
 		public virtual void Write(int cutoff)
 		{
-			using (StreamWriter writer = new StreamWriter(mDictionaryFile))
-			{
-                foreach (string word in mDictionary.Keys)
-                {
-                    if (mWordCounts[word] > cutoff)
-                    {
-                        writer.Write(word);
-                        Util.Set<string> tags = mDictionary[word];
-                        foreach (string tag in tags)
-                        {
-                            writer.Write(" ");
-                            writer.Write(tag);
-                        }
-                        writer.Write(System.Environment.NewLine);
-                    }
-                }
-				writer.Close();
-			}
+            using (var fileStream = new FileStream(mDictionaryFile, FileMode.Open)){
+                using (StreamWriter writer = new StreamWriter(fileStream))
+				{
+					foreach (string word in mDictionary.Keys)
+					{
+						if (mWordCounts[word] > cutoff)
+						{
+							writer.Write(word);
+							Util.Set<string> tags = mDictionary[word];
+							foreach (string tag in tags)
+							{
+								writer.Write(" ");
+								writer.Write(tag);
+							}
+							writer.Write(Environment.NewLine);
+						}
+					}
+				}
+            }
+			
 		}
 	}
 }
