@@ -211,7 +211,6 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
 
         public override string ToString()
         {
-            string result;
             switch (mode)
             {
                 case RelabelMode.Fixed:
@@ -220,8 +219,9 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
                     return label + '(' + children[0].ToString() + ',' + labelRegex.ToString() + ',' + replacementString +
                            ')';
                 default:
-                    throw new InvalidEnumArgumentException("Unsupported relabel mode " + mode);
-            }
+					throw new ArgumentException("Unsupported relabel mode " + mode);
+					//throw new InvalidEnumArgumentException("Unsupported relabel mode " + mode);
+			}
         }
     }
 }

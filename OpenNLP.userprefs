@@ -1,9 +1,13 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Coreference/Similarity/SimilarityModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Trees/AbstractCollinsHeadFinder.cs">
     <Files>
       <File FileName="OpenNLP/Tools/Util/XMLUtils.cs" Line="18" Column="13" />
       <File FileName="OpenNLP/Tools/Util/StringUtils.cs" Line="50" Column="41" />
-      <File FileName="OpenNLP/Tools/Coreference/Similarity/SimilarityModel.cs" Line="412" Column="25" />
+      <File FileName="OpenNLP/Tools/Coreference/Similarity/SimilarityModel.cs" Line="433" Column="18" />
+      <File FileName="OpenNLP/Tools/Chunker/RegexDictionaryDechunker.cs" Line="106" Column="35" />
+      <File FileName="OpenNLP/Tools/Tokenize/DictionaryDetokenizer.cs" Line="107" Column="21" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/RelabelNode.cs" Line="213" Column="10" />
+      <File FileName="OpenNLP/Tools/Trees/AbstractCollinsHeadFinder.cs" Line="324" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

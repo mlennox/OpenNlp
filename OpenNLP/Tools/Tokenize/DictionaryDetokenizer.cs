@@ -106,7 +106,8 @@ namespace OpenNLP.Tools.Tokenize
                 }
                 else
                 {
-                    throw new InvalidEnumArgumentException("Unknown operation: " + dictOperation);
+                    throw new ArgumentException("Unknown operation: " + dictOperation);
+                    //throw new InvalidEnumArgumentException("Unknown operation: " + dictOperation);
                 }
             }
 

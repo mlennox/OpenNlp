@@ -322,8 +322,10 @@ namespace OpenNLP.Tools.Trees
                     headIdx = FindRightExceptHead(daughterTrees, how);
                     break;
                 default:
-                    throw new InvalidEnumArgumentException("ERROR: invalid direction type " + how[0] +
-                                                           " to nonTerminalInfo map in AbstractCollinsHeadFinder.");
+					throw new ArgumentException("ERROR: invalid direction type " + how[0] +
+														   " to nonTerminalInfo map in AbstractCollinsHeadFinder.");
+                    //throw new InvalidEnumArgumentException("ERROR: invalid direction type " + how[0] +
+                                                           //" to nonTerminalInfo map in AbstractCollinsHeadFinder.");
             }
 
             // what happens if our rule didn't match anything

@@ -103,7 +103,8 @@ namespace OpenNLP.Tools.Chunker
                     }
                     else
                     {
-                        throw new InvalidEnumArgumentException("Unknown operation: " + operation);
+                        throw new ArgumentException("Unknown operation: " + operation);
+                        //throw new InvalidEnumArgumentException("Unknown operation: " + operation);
                     }
                 }
             }
