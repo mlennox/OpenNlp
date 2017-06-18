@@ -1,6 +1,15 @@
 ﻿<Properties StartupConfiguration="{19A1DDC0-9EE7-46D1-9EA4-3F8D274FAE3F}|Default">
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenNLP/Tools/Coreference/DiscourseEntity.cs">
+    <Files>
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonParser.cs" Line="151" Column="32" />
+      <File FileName="OpenNLP/Tools/Trees/TRegex/Tsurgeon/TsurgeonParserTokenManager.cs" Line="59" Column="25" />
+      <File FileName="OpenNLP/Tools/Coreference/DiscourseEntity.cs" Line="34" Column="78" />
+      <File FileName="OpenNLP/OpenNLP.nuspec" Line="1" Column="1" />
+      <File FileName="OpenNLP/Tools/PartsOfSpeech.cs" Line="1" Column="1" />
+      <File FileName="OpenNLP/Tools/TaggedWord.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|Mixed Platforms" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

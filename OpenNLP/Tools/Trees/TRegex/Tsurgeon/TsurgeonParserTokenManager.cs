@@ -67,7 +67,7 @@ namespace OpenNLP.Tools.Trees.TRegex.Tsurgeon
             {
                 CurChar = InputStream.ReadChar();
             }
-            catch ( IOException e)
+            catch ( IOException )
             {
                 return 1;
             }
